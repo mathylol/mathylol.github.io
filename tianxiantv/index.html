@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>天仙tv导航-影视站点分类索引与使用指南</title>
+<meta name="description" content="天仙tv导航提供影视类站点分类索引、频道入口整理与安全访问提示，帮助用户按类型、地区、语言快速定位想看的影视内容，并了解导航站使用与收藏方法。">
+<meta name="keywords" content="天仙tv导航,影视导航,影视站点索引,在线影视入口,影视分类导航">
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+<style>
+  :root{
+    --bg:#0d0f1a;
+    --bg-soft:#151829;
+    --card:#1b1f33;
+    --card-hover:#222741;
+    --line:#2a2f49;
+    --text:#e8eaf3;
+    --text-dim:#9aa1bd;
+    --accent:#6c8cff;
+    --accent-2:#c471ff;
+    --warm:#ffb454;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.75;
+    font-size:15px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{width:100%;max-width:1180px;margin:0 auto;padding:0 20px;}
+
+  /* ---------- 顶部导航 ---------- */
+  .site-header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,15,26,.86);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:18px;height:64px;
+  }
+  .brand{display:flex;align-items:center;gap:10px;flex-shrink:0;}
+  .brand-logo{
+    width:34px;height:34px;border-radius:10px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:15px;color:#fff;letter-spacing:.5px;
+  }
+  .brand-name{font-size:17px;font-weight:700;letter-spacing:.5px;}
+  .brand-name span{color:var(--accent);}
+  .main-nav{display:flex;gap:6px;flex-wrap:wrap;}
+  .main-nav a{
+    padding:7px 13px;border-radius:9px;font-size:14px;color:var(--text-dim);
+    transition:.2s;white-space:nowrap;
+  }
+  .main-nav a:hover{color:#fff;background:var(--card);}
+
+  /* ---------- 首屏 ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    padding:64px 0 56px;
+    background:
+      radial-gradient(900px 380px at 12% -10%,rgba(108,140,255,.22),transparent 62%),
+      radial-gradient(760px 360px at 92% 0%,rgba(196,113,255,.18),transparent 60%),
+      var(--bg);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center;}
+  .hero-tag{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;color:var(--warm);
+    border:1px solid rgba(255,180,84,.35);
+    background:rgba(255,180,84,.08);
+    padding:5px 12px;border-radius:999px;margin-bottom:18px;
+  }
+  .hero h1{
+    font-size:clamp(26px,3.6vw,40px);
+    line-height:1.3;font-weight:800;letter-spacing:.5px;
+    margin-bottom:16px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    background:linear-gradient(100deg,var(--accent),var(--accent-2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.lead{color:var(--text-dim);font-size:15.5px;max-width:640px;margin-bottom:26px;}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:11px 22px;border-radius:11px;font-size:14.5px;font-weight:600;
+    transition:.22s;cursor:pointer;border:1px solid transparent;
+  }
+  .btn-primary{
+    background:linear-gradient(100deg,var(--accent),var(--accent-2));
+    color:#fff;box-shadow:0 8px 22px rgba(108,140,255,.3);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(108,140,255,.42);}
+  .btn-ghost{border-color:var(--line);color:var(--text-dim);background:var(--card);}
+  .btn-ghost:hover{color:#fff;border-color:var(--accent);}
+
+  .hero-panel{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:18px;padding:20px;box-shadow:var(--shadow);
+  }
+  .hero-panel h2{font-size:14px;color:var(--text-dim);font-weight:600;margin-bottom:14px;letter-spacing:1px;}
+  .quick-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  .quick-item{
+    background:var(--bg-soft);border:1px solid var(--line);
+    border-radius:11px;padding:12px 13px;transition:.2s;
+  }
+  .quick-item:hover{border-color:var(--accent);background:var(--card-hover);transform:translateY(-2px);}
+  .quick-item strong{display:block;font-size:14px;margin-bottom:3px;}
+  .quick-item span{font-size:12.5px;color:var(--text-dim);}
+
+  /* ---------- 通用区块 ---------- */
+  section{padding:54px 0;}
+  .section-head{margin-bottom:28px;}
+  .section-head h2{
+    font-size:22px;font-weight:700;letter-spacing:.5px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .section-head h2::before{
+    content:"";width:4px;height:20px;border-radius:3px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  }
+  .section-head p{color:var(--text-dim);font-size:14px;margin-top:8px;}
+
+  /* ---------- 分类索引 ---------- */
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .cat-card{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:18px 16px;transition:.22s;
+    display:block;
+  }
+  .cat-card:hover{background:var(--card-hover);border-color:var(--accent);transform:translateY(-3px);}
+  .cat-icon{
+    width:38px;height:38px;border-radius:10px;margin-bottom:12px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:17px;background:rgba(108,140,255,.14);color:var(--accent);
+  }
+  .cat-card h3{font-size:15.5px;margin-bottom:6px;}
+  .cat-card p{font-size:13px;color:var(--text-dim);line-height:1.65;}
+
+  /* ---------- 精选入口 ---------- */
+  .entry-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .entry{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px;transition:.22s;display:flex;flex-direction:column;gap:10px;
+  }
+  .entry:hover{border-color:var(--accent);background:var(--card-hover);}
+  .entry-top{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .entry-top h3{font-size:16px;}
+  .badge{
+    font-size:11.5px;padding:3px 9px;border-radius:999px;
+    background:rgba(196,113,255,.15);color:#d9a7ff;border:1px solid rgba(196,113,255,.3);
+    white-space:nowrap;
+  }
+  .badge.new{background:rgba(255,180,84,.13);color:var(--warm);border-color:rgba(255,180,84,.3);}
+  .entry p{font-size:13.5px;color:var(--text-dim);}
+  .entry-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px;}
+  .tag{
+    font-size:12px;color:var(--text-dim);background:var(--bg-soft);
+    border:1px solid var(--line);padding:2px 9px;border-radius:6px;
+  }
+
+  /* ---------- 使用指南 ---------- */
+  .guide-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:start;}
+  .steps{display:flex;flex-direction:column;gap:14px;}
+  .step{
+    display:flex;gap:14px;background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);padding:16px 18px;
+  }
+  .step-num{
+    flex-shrink:0;width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    color:#fff;font-weight:700;font-size:14px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .step h3{font-size:15px;margin-bottom:4px;}
+  .step p{font-size:13.5px;color:var(--text-dim);}
+
+  .tips{
+    background:linear-gradient(160deg,rgba(108,140,255,.1),rgba(196,113,255,.06));
+    border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+  }
+  .tips h3{font-size:16px;margin-bottom:14px;}
+  .tips ul{list-style:none;display:flex;flex-direction:column;gap:11px;}
+  .tips li{
+    font-size:13.5px;color:var(--text-dim);padding-left:20px;position:relative;
+  }
+  .tips li::before{
+    content:"";position:absolute;left:0;top:9px;
+    width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+  }
+  .tips li strong{color:var(--text);}
+
+  /* ---------- 常见问题 ---------- */
+  .faq{display:flex;flex-direction:column;gap:12px;}
+  .faq-item{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;
+  }
+  .faq-item summary{
+    cursor:pointer;padding:16px 20px;font-size:15px;font-weight:600;
+    list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;
+    transition:.2s;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{
+    content:"+";font-size:19px;color:var(--accent);font-weight:400;flex-shrink:0;
+  }
+  .faq-item[open] summary::after{content:"−";}
+  .faq-item summary:hover{color:var(--accent);}
+  .faq-item .faq-body{
+    padding:0 20px 18px;font-size:13.8px;color:var(--text-dim);
+    border-top:1px solid var(--line);padding-top:14px;
+  }
+
+  /* ---------- 侧栏提示条 ---------- */
+  .notice{
+    background:var(--bg-soft);border:1px solid var(--line);
+    border-left:3px solid var(--warm);border-radius:10px;
+    padding:16px 20px;font-size:13.5px;color:var(--text-dim);
+  }
+  .notice strong{color:var(--warm);}
+
+  /* ---------- 页脚 ---------- */
+  .site-footer{
+    border-top:1px solid var(--line);background:var(--bg-soft);
+    padding:40px 0 26px;margin-top:20px;
+  }
+  .footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;}
+  .footer-grid h4{font-size:14.5px;margin-bottom:14px;}
+  .footer-grid p,.footer-grid li{font-size:13.2px;color:var(--text-dim);line-height:1.9;}
+  .footer-grid ul{list-style:none;}
+  .footer-grid a:hover{color:var(--accent);}
+  .footer-bottom{
+    margin-top:30px;padding-top:18px;border-top:1px solid var(--line);
+    font-size:12.6px;color:#6e7590;text-align:center;line-height:1.9;
+  }
+
+  /* ---------- 响应式 ---------- */
+  @media (max-width:980px){
+    .hero-inner{grid-template-columns:1fr;gap:30px;}
+    .cat-grid{grid-template-columns:repeat(2,1fr);}
+    .entry-list{grid-template-columns:repeat(2,1fr);}
+    .guide-wrap{grid-template-columns:1fr;gap:26px;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:640px){
+    body{font-size:14.5px;}
+    .header-inner{height:auto;padding:12px 0;flex-direction:column;align-items:flex-start;gap:10px;}
+    .main-nav{gap:2px;}
+    .main-nav a{padding:6px 10px;font-size:13px;}
+    .hero{padding:40px 0 38px;}
+    section{padding:38px 0;}
+    .cat-grid{grid-template-columns:1fr;}
+    .entry-list{grid-template-columns:1fr;}
+    .quick-grid{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;gap:22px;}
+    .section-head h2{font-size:19px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <div class="brand">
+      <div class="brand-logo">天</div>
+      <div class="brand-name">天仙<span>tv导航</span></div>
+    </div>
+    <nav class="main-nav" aria-label="主导航">
+      <a href="#categories">分类索引</a>
+      <a href="#entries">精选入口</a>
+      <a href="#guide">使用指南</a>
+      <a href="#faq">常见问题</a>
+      <a href="#safety">安全提示</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <span class="hero-tag">◆ 影视站点分类索引</span>
+        <h1>天仙tv导航：把分散的<em>影视入口</em>整理成一张清晰地图</h1>
+        <p class="lead">
+          面对数量庞大、名称相近的影视站点，很多人的困扰不是"找不到"，而是"不知道从哪儿开始找"。天仙tv导航的思路是把常见的影视站点按内容类型、地区语言和观看习惯归类，形成一份可浏览、可对照的索引，让你在检索之前先看清整体结构，再决定去往哪个方向。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#categories">浏览分类索引</a>
+          <a class="btn btn-ghost" href="#guide">查看使用指南</a>
+        </div>
+      </div>
+      <aside class="hero-panel" aria-label="快速定位">
+        <h2>按需求快速定位</h2>
+        <div class="quick-grid">
+          <div class="quick-item">
+            <strong>按内容类型</strong>
+            <span>剧集 / 电影 / 综艺 / 动漫</span>
+          </div>
+          <div class="quick-item">
+            <strong>按地区语言</strong>
+            <span>华语 / 日韩 / 欧美</span>
+          </div>
+          <div class="quick-item">
+            <strong>按观看方式</strong>
+            <span>在线播放 / 资源检索</span>
+          </div>
+          <div class="quick-item">
+            <strong>按使用场景</strong>
+            <span>移动端 / 桌面端</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 分类索引 -->
+  <section id="categories">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>分类索引</h2>
+        <p>导航站的价值在于结构。以下分类用于帮助你把模糊的"想看点什么"转化为具体的检索方向，点击卡片可查看该分类下的说明与注意事项。</p>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-card" href="#entries">
+          <div class="cat-icon">剧</div>
+          <h3>剧集频道</h3>
+          <p>以连续剧、季播剧为主，通常按更新节奏排列，适合追更用户。</p>
+        </a>
+        <a class="cat-card" href="#entries">
+          <div class="cat-icon">影</div>
+          <h3>电影频道</h3>
+          <p>以单片电影为主，按类型、年份、地区划分，适合一次性观看。</p>
+        </a>
+        <a class="cat-card" href="#entries">
+          <div class="cat-icon">综</div>
+          <h3>综艺频道</h3>
+          <p>涵盖访谈、竞技、真人秀等形态，更新频率与播出周期相关。</p>
+        </a>
+        <a class="cat-card" href="#entries">
+          <div class="cat-icon">漫</div>
+          <h3>动漫频道</h3>
+          <p>包含国产动画与引进动画，常按季度新番与长篇连载区分。</p>
+        </a>
+        <a class="cat-card" href="#entries">
+          <div class="cat-icon">纪</div>
+          <h3>纪录片频道</h3>
+          <p>自然、历史、人文、科技等题材，内容篇幅与观看节奏差异较大。</p>
+        </a>
+        <a class="cat-card" href="#entries">
+          <div class="cat-icon">短</div>
+          <h3>短剧频道</h3>
+          <p>单集时长较短、节奏紧凑，适合碎片时间观看的内容形态。</p>
+        </a>
+        <a class="cat-card" href="#entries">
+          <div class="cat-icon">语</div>
+          <h3>语言地区</h3>
+          <p>按华语、日韩、欧美等语言地区划分，便于按口音与题材偏好筛选。</p>
+        </a>
+        <a class="cat-card" href="#entries">
+          <div class="cat-icon">榜</div>
+          <h3>榜单聚合</h3>
+          <p>将不同来源的热度、评分、更新时间等信息并列展示，方便横向比较。</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精选入口 -->
+  <section id="entries">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>精选入口说明</h2>
+        <p>以下条目描述的是导航站中常见的入口类型及其适用场景，不指向具体站点地址。请以实际访问时的页面状态为准。</p>
+      </div>
+      <div class="entry-list">
+        <article class="entry">
+          <div class="entry-top">
+            <h3>综合影视索引</h3>
+            <span class="badge">常用</span>
+          </div>
+          <p>把剧集、电影、综艺等多个品类放在同一入口下，适合还没有明确目标、希望先浏览再决定的用户。</p>
+          <div class="entry-meta">
+            <span class="tag">品类齐全</span>
+            <span class="tag">适合浏览</span>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>更新流聚合</h3>
+            <span class="badge new">追更</span>
+          </div>
+          <p>以时间线方式呈现更新动态，帮助追更用户快速判断当天有哪些内容产生了新进度。</p>
+          <div class="entry-meta">
+            <span class="tag">按时间排序</span>
+            <span class="tag">追更友好</span>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>类型细分入口</h3>
+            <span class="badge">精准</span>
+          </div>
+          <p>按悬疑、喜剧、科幻、家庭等题材细分，适合已有明确口味、希望减少筛选成本的用户。</p>
+          <div class="entry-meta">
+            <span class="tag">题材筛选</span>
+            <span class="tag">减少干扰</span>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>地区语言入口</h3>
+            <span class="badge">偏好</span>
+          </div>
+          <p>按语言与制作地区归类，方便对配音、字幕习惯或文化背景有特定偏好的观众。</p>
+          <div class="entry-meta">
+            <span class="tag">按地区</span>
+            <span class="tag">按语言</span>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>评分与口碑参考</h3>
+            <span class="badge">参考</span>
+          </div>
+          <p>汇总公开评分与观众讨论热度，作为选择观看顺序的参考维度之一，而非唯一判断标准。</p>
+          <div class="entry-meta">
+            <span class="tag">评分对照</span>
+            <span class="tag">讨论热度</span>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-top">
+            <h3>移动端适配入口</h3>
+            <span class="badge">便携</span>
+          </div>
+          <p>针对手机屏幕优化的浏览路径，适合通勤、排队等碎片化场景下快速查找内容。</p>
+          <div class="entry-meta">
+            <span class="tag">小屏优化</span>
+            <span class="tag">碎片时间</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用指南 -->
+  <section id="guide">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>使用指南：从需求到入口的四步</h2>
+        <p>导航站本身不生产内容，它的作用是缩短你从"想看"到"找到"之间的路径。以下步骤适用于大多数影视导航场景。</p>
+      </div>
+      <div class="guide-wrap">
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h3>先明确内容类型，再选入口</h3>
+              <p>如果你已经确定要看剧集或电影，直接进入对应分类，比在综合页反复翻找更高效。类型越具体，后续筛选成本越低。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h3>用地区与语言缩小范围</h3>
+              <p>同样的题材，不同地区的叙事节奏和表达方式差别明显。先锁定语言与制作地区，能显著减少无关结果的干扰。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h3>交叉参考多个维度</h3>
+              <p>更新时间、评分、讨论热度各有局限。把两到三个维度放在一起看，比只看单一指标更容易做出符合自己口味的选择。</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h3>记录并整理自己的常用路径</h3>
+              <p>把经常使用的分类入口加入浏览器书签，或记下分类名称，下次使用时可以跳过重复的筛选过程。</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="tips">
+          <h3>选择入口时的几个判断点</h3>
+          <ul>
+            <li><strong>页面结构是否清晰：</strong>分类层级明确、导航可预期的站点，通常更容易长期使用。</li>
+            <li><strong>更新是否可查：</strong>能直观看到更新时间的入口，更适合追更需求。</li>
+            <li><strong>移动端体验：</strong>如果你主要在手机上观看，优先选择小屏排版正常的入口。</li>
+            <li><strong>加载稳定性：</strong>反复加载失败或频繁跳转的页面，使用体验往往较差。</li>
+            <li><strong>信息一致性：</strong>标题、简介与实际内容是否相符，是判断入口质量的重要参考。</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安全提示 -->
+  <section id="safety">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>安全与合规提示</h2>
+        <p>影视类导航涉及大量外部跳转，访问前了解基本注意事项，可以减少不必要的风险。</p>
+      </div>
+      <div class="notice">
+        <p><strong>请注意：</strong>导航站仅提供分类索引与信息整理，不存储、不制作、不传播任何影视内容。访问第三方页面时，请留意页面是否要求输入账号密码、支付信息或安装不明程序；对来源不明的弹窗、下载按钮和授权请求应保持警惕。影视内容的版权归属以权利方公示为准，建议通过正规授权渠道观看，并遵守所在地相关法律法规。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题 -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <p>关于影视导航站，用户最常提出的几个疑问。</p>
+      </div>
+      <div class="faq">
+        <details class="faq-item" open>
+          <summary>天仙tv导航是做什么的？</summary>
+          <div class="faq-body">
+            它是一个影视类站点的分类索引页面，把常见的影视入口按内容类型、地区语言、使用场景等维度整理归类，帮助用户更快定位到自己想看的方向。它本身不提供影视内容的播放或存储服务。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>导航站里的分类为什么经常变化？</summary>
+          <div class="faq-body">
+            影视站点的可用状态、内容结构和更新频率本身会随时间变化，分类索引也需要相应调整。如果你发现某个分类下的描述与实际体验不符，属于正常现象，建议以实际访问结果为准。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>如何判断一个影视入口是否值得长期使用？</summary>
+          <div class="faq-body">
+            可以从三个方面观察：页面结构是否稳定、更新信息是否及时准确、浏览过程是否频繁出现强制跳转或异常弹窗。通常结构清晰、更新可查、干扰较少的入口，长期使用体验更好。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>在手机上使用导航站需要注意什么？</summary>
+          <div class="faq-body">
+            手机端浏览时，注意页面是否请求了与观看无关的权限，例如通讯录、短信或位置信息。同时留意误触广告导致的跳转，必要时可开启浏览器的广告拦截功能。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>导航站会收集我的个人信息吗？</summary>
+          <div class="faq-body">
+            本页面为静态信息展示页，不设置账号体系，也不主动收集个人身份信息。但跳转至第三方页面后，其数据处理方式由该第三方决定，建议在提交任何信息前先确认对方的隐私说明。
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>为什么建议通过正规渠道观看影视内容？</summary>
+          <div class="faq-body">
+            正规授权渠道在画质稳定性、播放流畅度和个人信息保护方面通常更有保障，同时也有助于内容创作者获得合理回报。选择观看渠道时，可优先考虑有明确版权说明的平台。
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h4>关于天仙tv导航</h4>
+        <p>一个面向影视爱好者的分类索引页面，专注于把分散的影视入口整理成可浏览、可对照的结构，帮助用户减少筛选时间。页面内容以信息整理为主，不涉及影视内容的存储与传播。</p>
+      </div>
+      <div>
+        <h4>页面导航</h4>
+        <ul>
+          <li><a href="#categories">分类索引</a></li>
+          <li><a href="#entries">精选入口说明</a></li>
+          <li><a href="#guide">使用指南</a></li>
+          <li><a href="#safety">安全与合规提示</a></li>
+          <li><a href="#faq">常见问题</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>使用建议</h4>
+        <ul>
+          <li>优先通过正规授权渠道观看</li>
+          <li>谨慎对待不明来源的下载请求</li>
+          <li>注意保护个人账号与支付信息</li>
+          <li>遵守所在地相关法律法规</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>天仙tv导航 · 影视站点分类索引与使用指南</p>
+      <p>本站仅提供信息整理与导航参考，不存储、不制作、不传播任何影视内容，版权归属以权利方公示为准。</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // 平滑滚动兼容处理：为不支持 scroll-behavior 的浏览器提供基础跳转体验
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      var id = this.getAttribute('href');
+      if (id.length < 2) return;
+      var target = document.querySelector(id);
+      if (!target) return;
+      e.preventDefault();
+      var headerH = document.querySelector('.site-header').offsetHeight || 0;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  // 常见问题：手风琴效果，展开一项时收起其他项
+  var faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(function (item) {
+    item.addEventListener('toggle', function () {
+      if (!item.open) return;
+      faqItems.forEach(function (other) {
+        if (other !== item) other.open = false;
+      });
+    });
+  });
+</script>
+
+</body>
+          </html>
